@@ -2,6 +2,7 @@ package com.pedraza.algorithms;
 
 import com.pedraza.datastructures.BTNode;
 import com.pedraza.datastructures.BinaryTree;
+import com.pedraza.datastructures.Stack;
 
 public class TreeDephtFirstSearch<T extends Comparable<T>> {
 
@@ -26,6 +27,19 @@ public class TreeDephtFirstSearch<T extends Comparable<T>> {
         result = search(node.right, value);
         if (result != null) return result;
 
+        return null;
+    }
+
+    public BTNode<T> searchNoRecursive(T value) {
+        if (tree.root == null) return null;
+        Stack<BTNode<T>> stack = new Stack<BTNode<T>>();
+        stack.push(tree.root);
+        while (!stack.isEmpty()) {
+            BTNode<T> node = stack.pop();
+            if (node.value == value) return node;
+            if (node.right != null) stack.push(node.right);
+            if (node.left  != null) stack.push(node.left);
+        }
         return null;
     }
     
