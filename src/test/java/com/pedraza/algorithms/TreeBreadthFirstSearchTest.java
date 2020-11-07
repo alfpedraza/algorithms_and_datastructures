@@ -2,7 +2,7 @@ package com.pedraza.algorithms;
 
 import static org.junit.Assert.*;
 
-import com.pedraza.datastructures.BTNode;
+import com.pedraza.datastructures.BinaryTreeNode;
 import com.pedraza.datastructures.BinaryTree;
 
 import org.junit.Test;
@@ -60,6 +60,6 @@ public class TreeBreadthFirstSearchTest {
         return tree;
     }
 
-    private class Node extends BTNode<Integer> { public Node(Integer v) { super(v); } }
+    private class Node extends BinaryTreeNode<Integer> { public Node(Integer v) { super(v); } }
     
 }

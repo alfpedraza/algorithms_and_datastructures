@@ -47,12 +47,12 @@ public class BinaryTreeTest extends TestBase {
         return root;
     }
 
-    private class Node extends BTNode<Integer> { public Node(Integer v) { super(v); } }
+    private class Node extends BinaryTreeNode<Integer> { public Node(Integer v) { super(v); } }
 
     private class TraverseBinaryTree extends BinaryTree<Integer> {
         public ArrayList<Integer> data = new ArrayList<Integer>();
-        protected void inOrderProcessing(BTNode<Integer> node) { data.add(node.value); }
-        protected void preOrderProcessing(BTNode<Integer> node) { data.add(node.value); }
-        protected void postOrderProcessing(BTNode<Integer> node) { data.add(node.value); }
+        protected void inOrderProcessing(BinaryTreeNode<Integer> node) { data.add(node.value); }
+        protected void preOrderProcessing(BinaryTreeNode<Integer> node) { data.add(node.value); }
+        protected void postOrderProcessing(BinaryTreeNode<Integer> node) { data.add(node.value); }
     }
 }

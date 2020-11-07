@@ -17,14 +17,14 @@ public class BinarySearchTreeTest extends TestBase {
     @Test
     public void nodeShouldBeFoundIfExists() {
         BST tree = buildBinarySearchTree();
-        BTNode<Integer> node = tree.search((Integer)5);
+        BinaryTreeNode<Integer> node = tree.search((Integer)5);
         assertNotNull(node);
     }
 
     @Test
     public void nodeShouldBeNullIfNotExists() {
         BST tree = buildBinarySearchTree();
-        BTNode<Integer> node = tree.search((Integer)50);
+        BinaryTreeNode<Integer> node = tree.search((Integer)50);
         assertNull(node);
     }
 
@@ -56,6 +56,6 @@ public class BinarySearchTreeTest extends TestBase {
 
     private class BST extends BinarySearchTree<Integer> {
         public ArrayList<Integer> data = new ArrayList<Integer>();
-        protected void inOrderProcessing(BTNode<Integer> node) { data.add(node.value); }
+        protected void inOrderProcessing(BinaryTreeNode<Integer> node) { data.add(node.value); }
     }
 }

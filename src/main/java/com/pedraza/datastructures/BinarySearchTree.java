@@ -4,9 +4,9 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
 
     public void insert(T value) { root = insert(root, value); }
 
-    private BTNode<T> insert(BTNode<T> node, T value) {
+    private BinaryTreeNode<T> insert(BinaryTreeNode<T> node, T value) {
         if (node == null) {
-            return new BTNode<T>(value);
+            return new BinaryTreeNode<T>(value);
         } else {
             int comparison = value.compareTo(node.value);
             if (comparison == 0) {
@@ -20,12 +20,12 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
         return node;
     }
 
-    public BTNode<T> search(T value) { return search(root, value); }
+    public BinaryTreeNode<T> search(T value) { return search(root, value); }
 
-    private BTNode<T> search(BTNode<T> node, T value) {
+    private BinaryTreeNode<T> search(BinaryTreeNode<T> node, T value) {
         if (node == null) return null;
         int comparison = value.compareTo(node.value);
-        BTNode<T> result = null;
+        BinaryTreeNode<T> result = null;
         if (comparison == 0) {
             result = node;
         } else if (comparison < 0) {
@@ -38,7 +38,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
 
     public int height() { return height(root); }
 
-    public int height(BTNode<T> node) {
+    public int height(BinaryTreeNode<T> node) {
         if (node == null) return -1;
         return 1 + Math.max(height(node.left), height(node.right));
     }
