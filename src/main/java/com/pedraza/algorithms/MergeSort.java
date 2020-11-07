@@ -1,8 +1,5 @@
 package com.pedraza.algorithms;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.ParameterizedType;
-
 public class MergeSort<T extends Comparable<T>> {
 
     private T[] data;
