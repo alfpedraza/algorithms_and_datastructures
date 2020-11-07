@@ -1,6 +1,7 @@
 package com.pedraza.algorithms;
 
 public class QuickSort<T extends Comparable<T>> {
+    
     private T[] data;
 
     public QuickSort(T[] data) {
