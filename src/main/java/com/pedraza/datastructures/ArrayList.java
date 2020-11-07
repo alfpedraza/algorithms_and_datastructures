@@ -1,6 +1,5 @@
 package com.pedraza.datastructures;
 
-@SuppressWarnings("unchecked")
 public class ArrayList<T> {
     private static int DEFAULT_CAPACITY = 8;
 
@@ -15,13 +14,16 @@ public class ArrayList<T> {
     public ArrayList(int theCapacity) {
         size = 0;
         capacity = theCapacity;
-        data = (T[]) new Object[capacity];
+        data = createArray(capacity);
     }
 
     public int capacity() { return capacity; }
     public int size() { return size; }
     public boolean isEmpty() { return size == 0; }
     public boolean contains(T obj) { return indexOf(obj) >= 0; }
+
+    @SuppressWarnings("unchecked")
+    private T[] createArray(int size) { return (T[]) new Object[size]; }
 
     public int indexOf(T obj) {
         for(int i = 0; i < capacity; i++) {
@@ -50,7 +52,7 @@ public class ArrayList<T> {
 
     private void ensureCapacity() {
         int newCapacity = capacity * 2;
-        T[] newData = (T[]) new Object[newCapacity];
+        T[] newData = createArray(newCapacity);
         for(int i = 0; i < capacity; i++) {
             newData[i] = data[i];
         }
@@ -84,11 +86,11 @@ public class ArrayList<T> {
     public void clear() {
         size = 0;
         capacity = DEFAULT_CAPACITY;
-        data = (T[]) new Object[this.capacity];
+        data = createArray(capacity);
     }
 
     public T[] toArray() {
-        T[] result = (T[]) new Object[this.size];
+        T[] result = createArray(size);
         for (int i = 0; i < size; i++) result[i] = data[i];
         return (T[]) result;
     }
