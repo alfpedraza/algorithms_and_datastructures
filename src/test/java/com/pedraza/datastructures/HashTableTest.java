@@ -79,4 +79,18 @@ public class HashTableTest extends TestBase {
         Integer value = table.get("USA");
         assertEquals(null, value);
     }
+
+    @Test
+    public void iteratorShoudlReturnAllValues() {
+        table = new HashTable<String, Integer>(8);
+        table.set("Mexico", 100);
+        table.set("USA", 200);
+        table.set("Canada", 300);
+        table.set("France", 400);
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (Integer value : table) {
+            list.add(value);
+        }
+        assertEquals(4, list.size());
+    }
 }

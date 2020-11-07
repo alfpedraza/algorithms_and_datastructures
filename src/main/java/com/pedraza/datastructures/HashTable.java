@@ -1,7 +1,9 @@
 package com.pedraza.datastructures;
 
+import java.util.Iterator;
+
 @SuppressWarnings("unchecked")
-public class HashTable<K,V> {
+public class HashTable<K,V> implements Iterable<V> {
 
     private class Node {
         public K key;
@@ -89,12 +91,74 @@ public class HashTable<K,V> {
         int index = getIndex(key);
         LinkedList<Node> list = data[index];
         if (list == null) return null;
-        for (int i = 0; i < list.size(); i++) {
-            Node node = list.get(i);
+        for (Node node : list) {
             if (node.key == key) {
                 return node;
             }
         }
         return null;
+    }
+
+    public void remove(K key) {
+        int index = getIndex(key);
+        LinkedList<Node> list = data[index];
+        if (list == null) return;
+
+        int i = 0;
+        for (Node node : list) {
+            if (node.key == key) {
+                list.remove(i);
+                if (list.size() == 0) {
+                    list = null;
+                    data[index] = null;
+                }
+                size--;
+                return;
+            }
+            i++;
+        }
+    }
+
+    public Iterator<V> iterator() {
+        return new HashTableIterator();
+    }
+
+    private class HashTableIterator implements Iterator<V> {
+        int nextIndex;
+        Iterator<Node> listIterator;
+
+        public HashTableIterator() {
+            nextIndex = 0;
+            listIterator = null;
+        }
+
+        public boolean hasNext() {
+            if (listIterator != null && listIterator.hasNext()) return true;
+            while(true) {
+                nextIndex = nextKeyIndex();
+                if (nextIndex == -1) return false;
+                listIterator = data[nextIndex].iterator();
+                if (listIterator.hasNext()) return true;
+            }
+        }
+
+        public V next() {
+            Node node = listIterator.next();
+            if (!listIterator.hasNext()) {
+                nextIndex++;
+                listIterator = null;
+            }
+            return node.value;
+        }
+
+        private int nextKeyIndex() {
+            if (nextIndex >= capacity) return -1;
+            int index = nextIndex;
+            while (index < capacity) {
+                if (data[index] != null) return index;
+                index++;
+            }
+            return -1;
+        }
     }
 }
