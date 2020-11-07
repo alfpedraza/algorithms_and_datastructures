@@ -1,6 +1,8 @@
 package com.pedraza.datastructures;
 
-public class LinkedList<T> {
+import java.util.Iterator;
+
+public class LinkedList<T> implements Iterable<T> {
     private int nodeCount;
     private Node first;
     private Node last;
@@ -98,5 +100,40 @@ public class LinkedList<T> {
         while (nodeCount > 0) {
             remove(0);
         }
+    }
+
+    public Iterator<T> iterator() {
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<T> {
+        int nextIndex = 0;
+        Node nextNode = null;
+
+        public LinkedListIterator() {
+            nextIndex = 0;
+            nextNode = first;
+        }
+
+        public boolean hasNext() { return nextIndex < nodeCount; }
+
+        public T next() {
+            T value = nextNode.value;
+            nextNode = nextNode.next;
+            nextIndex++;
+            return value;
+        }
+    }
+
+    public ArrayList<T> toArrayList() {
+        ArrayList<T> arrayList = new ArrayList<T>();
+        for (T item : this) {
+            arrayList.add(item);
+        }
+        return arrayList;
+    }
+
+    public T[] toArray() {
+        return toArrayList().toArray();
     }
 }

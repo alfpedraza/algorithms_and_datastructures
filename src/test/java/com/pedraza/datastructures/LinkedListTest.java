@@ -164,6 +164,19 @@ public class LinkedListTest extends TestBase {
         assertEquals(last, null);
     }
 
+    @Test
+    public void iteratorShoudlReturnDataInOrder() {
+        list = new LinkedList<Integer>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        Object[] expected = new Object[] { 1, 2, 3, 4, 5 };
+        Object[] actual = (Object[]) list.toArray();
+        assertArrayEquals(expected, actual);
+    }
+
     private LinkedList<Integer>.Node getFirst() {
         return getNode("first");
     }
