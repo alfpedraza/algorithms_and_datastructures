@@ -16,21 +16,21 @@ public class MergeSort<T extends Comparable<T>> {
 
     private void mergeSort(int low, int high) {
         if (low >= high) return;
-        int medium = (low + high) / 2;
-        mergeSort(low, medium);
-        mergeSort(medium + 1, high);
-        merge(low, medium, high);
+        int mid = (low + high) / 2;
+        mergeSort(low, mid);
+        mergeSort(mid + 1, high);
+        merge(low, mid, high);
     }
 
-    private void merge(int low, int medium, int high) {
+    private void merge(int low, int mid, int high) {
 
         // Create left and right arrays and fill them.
-        int size1 = medium - low + 1;
-        int size2 = high - medium;
+        int size1 = mid - low + 1;
+        int size2 = high - mid;
         T[] left  = createArray(size1);
         T[] right = createArray(size2);
         for (int i = 0; i < size1; i++) left[i]  = data[low + i];
-        for (int i = 0; i < size2; i++) right[i] = data[medium + 1 + i];
+        for (int i = 0; i < size2; i++) right[i] = data[mid + 1 + i];
 
         // Fill array with sorted data.
         int i = 0;
