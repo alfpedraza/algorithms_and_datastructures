@@ -10,7 +10,7 @@ import org.junit.Test;
 public class TreeDepthFirstSearchTest {
 
     BinaryTree<Integer> tree;
-    TreeDephtFirstSearch<Integer> search;
+    TreeDepthFirstSearch<Integer> search;
 
     // #########################
     // ## Recursive Method    ##
@@ -19,7 +19,7 @@ public class TreeDepthFirstSearchTest {
     @Test
     public void searchShouldReturnNodeWhenFound() {
         tree = buildTree();
-        search = new TreeDephtFirstSearch<Integer>(tree);
+        search = new TreeDepthFirstSearch<Integer>(tree);
         Node actual = (Node) search.search(1);
         Node expected = (Node) tree.root.left.left;
         assertEquals(expected, actual);
@@ -28,7 +28,7 @@ public class TreeDepthFirstSearchTest {
     @Test
     public void searchShouldReturnNullWhenNotFound() {
         tree = buildTree();
-        search = new TreeDephtFirstSearch<Integer>(tree);
+        search = new TreeDepthFirstSearch<Integer>(tree);
         Node actual = (Node) search.search(10);
         Node expected = null;
         assertEquals(expected, actual);
@@ -37,7 +37,7 @@ public class TreeDepthFirstSearchTest {
     @Test
     public void searchShouldReturnNodeWhenFoundLeft() {
         tree = buildTree();
-        search = new TreeDephtFirstSearch<Integer>(tree);
+        search = new TreeDepthFirstSearch<Integer>(tree);
         Node actual = (Node) search.search(2);
         Node expected = (Node) tree.root.left.right;
         assertEquals(expected, actual);
@@ -46,7 +46,7 @@ public class TreeDepthFirstSearchTest {
     @Test
     public void searchShouldReturnNodeWhenFoundRight() {
         tree = buildTree();
-        search = new TreeDephtFirstSearch<Integer>(tree);
+        search = new TreeDepthFirstSearch<Integer>(tree);
         Node actual = (Node) search.search(7);
         Node expected = (Node) tree.root.right.right;
         assertEquals(expected, actual);
@@ -59,7 +59,7 @@ public class TreeDepthFirstSearchTest {
     @Test
     public void searchNoRecursiveShouldReturnNodeWhenFound() {
         tree = buildTree();
-        search = new TreeDephtFirstSearch<Integer>(tree);
+        search = new TreeDepthFirstSearch<Integer>(tree);
         Node actual = (Node) search.searchNoRecursive(1);
         Node expected = (Node) tree.root.left.left;
         assertEquals(expected, actual);
@@ -68,7 +68,7 @@ public class TreeDepthFirstSearchTest {
     @Test
     public void searchNoRecursiveShouldReturnNullWhenNotFound() {
         tree = buildTree();
-        search = new TreeDephtFirstSearch<Integer>(tree);
+        search = new TreeDepthFirstSearch<Integer>(tree);
         Node actual = (Node) search.searchNoRecursive(10);
         Node expected = null;
         assertEquals(expected, actual);
@@ -77,7 +77,7 @@ public class TreeDepthFirstSearchTest {
     @Test
     public void searchNoRecursiveShouldReturnNodeWhenFoundLeft() {
         tree = buildTree();
-        search = new TreeDephtFirstSearch<Integer>(tree);
+        search = new TreeDepthFirstSearch<Integer>(tree);
         Node actual = (Node) search.searchNoRecursive(2);
         Node expected = (Node) tree.root.left.right;
         assertEquals(expected, actual);
@@ -86,7 +86,7 @@ public class TreeDepthFirstSearchTest {
     @Test
     public void searchNoRecursiveShouldReturnNodeWhenFoundRight() {
         tree = buildTree();
-        search = new TreeDephtFirstSearch<Integer>(tree);
+        search = new TreeDepthFirstSearch<Integer>(tree);
         Node actual = (Node) search.searchNoRecursive(7);
         Node expected = (Node) tree.root.right.right;
         assertEquals(expected, actual);

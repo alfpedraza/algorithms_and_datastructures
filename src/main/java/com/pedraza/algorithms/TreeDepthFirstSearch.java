@@ -4,11 +4,11 @@ import com.pedraza.datastructures.BTNode;
 import com.pedraza.datastructures.BinaryTree;
 import com.pedraza.datastructures.Stack;
 
-public class TreeDephtFirstSearch<T extends Comparable<T>> {
+public class TreeDepthFirstSearch<T extends Comparable<T>> {
 
     private BinaryTree<T> tree;
 
-    public TreeDephtFirstSearch(BinaryTree<T> tree) {
+    public TreeDepthFirstSearch(BinaryTree<T> tree) {
         this.tree = tree;
     }
 
