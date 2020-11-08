@@ -24,12 +24,12 @@ public class GraphBreadthFirstSearch<T, W> {
 
         while (!queue.isEmpty()) {
             GraphVertex<T, W> vertex = queue.dequeue();
-            if (visited.get(vertex.value) != null) continue;
+            if (visited.get(vertex.getValue()) != null) continue;
             
-            if (vertex.value == end) return vertex;
-            visited.put(vertex.value, true);
-            for (GraphEdge<T, W> edge : vertex.edges) {
-                queue.queue(edge.vertex);
+            if (vertex.getValue() == end) return vertex;
+            visited.put(vertex.getValue(), true);
+            for (GraphEdge<T, W> edge : vertex.getEdges()) {
+                queue.queue(edge.getVertex());
             }
         }
         

@@ -20,24 +20,25 @@ public class GraphDijkstraSearch<T> {
         GraphDijkstraVertex<T> startVertex = graph.get(start);
         if (startVertex == null) return null;
         MinPriorityQueue<GraphDijkstraVertex<T>> queue = new MinPriorityQueue<>();
-        startVertex.distance = 0;
+        startVertex.setDistance(0);
         queue.add(startVertex);
 
         // Evaluation
         while (!queue.isEmpty()) {
             GraphDijkstraVertex<T> vertex = queue.poll();
-            if (vertex.visited) continue;
+            if (vertex.getVisited()) continue;
         
-            if (vertex.value == end) break;
-            vertex.visited = true;
+            if (vertex.getValue() == end) break;
+            vertex.setVisited(true);
 
-            for (GraphEdge<T, Integer> edge : vertex.edges) {
-                int newDistance = vertex.distance + edge.weight;
-                GraphDijkstraVertex<T> edgeVertex = (GraphDijkstraVertex<T>)edge.vertex;
-                Integer nextDistance = edgeVertex.distance;
+            for (GraphEdge<T, Integer> edge : vertex.getEdges()) {
+                int newDistance = vertex.getDistance() + edge.getWeight();
+                GraphDijkstraVertex<T> edgeVertex =
+                    (GraphDijkstraVertex<T>)edge.getVertex();
+                Integer nextDistance = edgeVertex.getDistance();
                 if (newDistance < nextDistance) {
-                    edgeVertex.distance = newDistance;
-                    edgeVertex.previous = vertex;
+                    edgeVertex.setDistance(newDistance);
+                    edgeVertex.setPrevious(vertex);
                     queue.add(edgeVertex);
                 }
             }
@@ -47,8 +48,8 @@ public class GraphDijkstraSearch<T> {
         ArrayList<T> path = new ArrayList<>();
         GraphDijkstraVertex<T> endVertex = graph.get(end);
         while (endVertex != null) {
-            path.add(endVertex.value);
-            endVertex = endVertex.previous;
+            path.add(endVertex.getValue());
+            endVertex = endVertex.getPrevious();
         }
         return path;
     }

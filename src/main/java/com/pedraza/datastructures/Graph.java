@@ -2,12 +2,14 @@ package com.pedraza.datastructures;
 
 public class Graph<T, W> {
 
-    protected HashTable<T, GraphVertex<T, W>> vertices;
+    private HashTable<T, GraphVertex<T, W>> vertices;
+
+    protected HashTable<T, GraphVertex<T, W>> getVertices() { return vertices; };
 
     public Graph() {
         vertices = new HashTable<>();
     }
-
+    
     public GraphVertex<T, W> get(T value) { return vertices.get(value); }
     public int size() { return vertices.size(); }
 
@@ -31,8 +33,8 @@ public class Graph<T, W> {
     public void removeVertex(T value) {
         GraphVertex<T,W> toRemove = vertices.get(value);
         for (GraphVertex<T,W> vertex : vertices) {
-            for (GraphEdge<T,W> edge : vertex.edges) {
-                if (edge.vertex.value == value) {
+            for (GraphEdge<T,W> edge : vertex.getEdges()) {
+                if (edge.getVertex().getValue() == value) {
                     vertex.removeEdge(toRemove);
                     break;
                 }

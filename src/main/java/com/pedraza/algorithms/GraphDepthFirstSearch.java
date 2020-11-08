@@ -24,12 +24,12 @@ public class GraphDepthFirstSearch<T, W> {
 
         while (!stack.isEmpty()) {
             GraphVertex<T, W> vertex = stack.pop();
-            if (visited.get(vertex.value) != null) continue;
+            if (visited.get(vertex.getValue()) != null) continue;
         
-            if (vertex.value == end) return vertex;
-            visited.put(vertex.value, true);
-            for (GraphEdge<T, W> edge : vertex.edges) {
-                stack.push(edge.vertex);
+            if (vertex.getValue() == end) return vertex;
+            visited.put(vertex.getValue(), true);
+            for (GraphEdge<T, W> edge : vertex.getEdges()) {
+                stack.push(edge.getVertex());
             }
         }
 

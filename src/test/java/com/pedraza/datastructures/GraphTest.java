@@ -31,7 +31,7 @@ public class GraphTest extends TestBase {
     @Test
     public void edgesSizeShouldBeKeptWhen() {
         graph = buildGraph();
-        int actual = graph.get("John").edges.size();
+        int actual = graph.get("John").getEdges().size();
         assertEquals(2, actual);
     }
 
@@ -39,7 +39,7 @@ public class GraphTest extends TestBase {
     public void edgesShouldBeDecreasedWhenRemoveEdge() {
         graph = buildGraph();
         graph.removeEdge("John", "Peter");
-        int actual = graph.get("John").edges.size();
+        int actual = graph.get("John").getEdges().size();
         assertEquals(1, actual);
     }
 
@@ -48,7 +48,7 @@ public class GraphTest extends TestBase {
         graph = buildGraph();
         graph.removeEdge("John", "Peter");
         graph.addEdge("John", "Peter");
-        int actual = graph.get("John").edges.size();
+        int actual = graph.get("John").getEdges().size();
         assertEquals(2, actual);
     }
 
@@ -56,7 +56,7 @@ public class GraphTest extends TestBase {
     public void edgesShouldBeAddedToItself() {
         graph = buildGraph();
         graph.addEdge("John", "John");
-        int actual = graph.get("John").edges.size();
+        int actual = graph.get("John").getEdges().size();
         assertEquals(3, actual);
     }
 
@@ -65,7 +65,7 @@ public class GraphTest extends TestBase {
         graph = buildGraph();
         graph.addEdge("John", "John");
         graph.removeEdge("John", "John");
-        int actual = graph.get("John").edges.size();
+        int actual = graph.get("John").getEdges().size();
         assertEquals(2, actual);
     }
 
