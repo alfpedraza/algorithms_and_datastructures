@@ -10,36 +10,36 @@ public class MinPriorityQueueTest extends TestBase {
     @Test
     public void insertShouldKeeptheMinAtRoot() {
         queue = new MinPriorityQueue<Integer>();
-        queue.insert(3);
-        queue.insert(4);
-        queue.insert(5);
-        queue.insert(1);
-        queue.insert(2);
+        queue.add(3);
+        queue.add(4);
+        queue.add(5);
+        queue.add(1);
+        queue.add(2);
         assertEquals((Integer)1, queue.peek());
     }
 
     @Test
     public void insertShouldKeeptheMinAtRootWithDuplicates() {
         queue = new MinPriorityQueue<Integer>();
-        queue.insert(3);
-        queue.insert(4);
-        queue.insert(4);
-        queue.insert(5);
-        queue.insert(1);
-        queue.insert(2);
+        queue.add(3);
+        queue.add(4);
+        queue.add(4);
+        queue.add(5);
+        queue.add(1);
+        queue.add(2);
         assertEquals((Integer)1, queue.peek());
     }
 
     @Test
     public void insertShouldKeepTheOrderAfterResizeCapacity() {
         queue = new MinPriorityQueue<Integer>(1);
-        queue.insert(3);
-        queue.insert(4);
-        queue.insert(4);
-        queue.insert(5);
-        queue.insert(1);
-        queue.insert(2);
-        queue.insert(2);
+        queue.add(3);
+        queue.add(4);
+        queue.add(4);
+        queue.add(5);
+        queue.add(1);
+        queue.add(2);
+        queue.add(2);
         assertEquals((Integer)1, queue.peek());
     }
 

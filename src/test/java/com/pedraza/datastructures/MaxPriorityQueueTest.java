@@ -10,36 +10,36 @@ public class MaxPriorityQueueTest extends TestBase {
     @Test
     public void insertShouldKeeptheMaxAtRoot() {
         queue = new MaxPriorityQueue<Integer>();
-        queue.insert(3);
-        queue.insert(4);
-        queue.insert(5);
-        queue.insert(1);
-        queue.insert(2);
+        queue.add(3);
+        queue.add(4);
+        queue.add(5);
+        queue.add(1);
+        queue.add(2);
         assertEquals((Integer)5, queue.peek());
     }
 
     @Test
     public void insertShouldKeeptheMaxAtRootWithDuplicates() {
         queue = new MaxPriorityQueue<Integer>();
-        queue.insert(3);
-        queue.insert(4);
-        queue.insert(4);
-        queue.insert(5);
-        queue.insert(1);
-        queue.insert(2);
+        queue.add(3);
+        queue.add(4);
+        queue.add(4);
+        queue.add(5);
+        queue.add(1);
+        queue.add(2);
         assertEquals((Integer)5, queue.peek());
     }
 
     @Test
     public void insertShouldKeepTheOrderAfterResizeCapacity() {
         queue = new MaxPriorityQueue<Integer>(1);
-        queue.insert(3);
-        queue.insert(4);
-        queue.insert(4);
-        queue.insert(5);
-        queue.insert(1);
-        queue.insert(2);
-        queue.insert(2);
+        queue.add(3);
+        queue.add(4);
+        queue.add(4);
+        queue.add(5);
+        queue.add(1);
+        queue.add(2);
+        queue.add(2);
         assertEquals((Integer)5, queue.peek());
     }
 

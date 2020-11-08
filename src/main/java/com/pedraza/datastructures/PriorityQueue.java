@@ -1,5 +1,7 @@
 package com.pedraza.datastructures;
 
+import javax.management.RuntimeErrorException;
+
 public abstract class PriorityQueue<T extends Comparable<T>> {
 
     private static int DEFAULT_CAPACITY = 16;
@@ -20,7 +22,7 @@ public abstract class PriorityQueue<T extends Comparable<T>> {
     public T[] toArray() { return data.toArray(); }
     public T peek() { return data.get(0); }
 
-    public void insert(T value) {
+    public void add(T value) {
         data.add(value);
         insert(data.size() - 1, value);
     }
@@ -32,6 +34,12 @@ public abstract class PriorityQueue<T extends Comparable<T>> {
             swap(index, parentIndex);
             insert(parentIndex, value);
         }
+    }
+
+    public T poll() {
+        T value = peek();
+        // TODO: Implement logic here.
+        return value;
     }
 
     protected abstract int compare(T v1, T v2);
