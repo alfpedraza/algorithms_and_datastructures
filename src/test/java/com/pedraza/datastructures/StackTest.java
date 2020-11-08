@@ -6,7 +6,6 @@ import org.junit.Test;
 public class StackTest extends TestBase {
     
     Stack<Integer> stack;
-    Stack<Integer>.Node tail;
 
     @Test
     public void sizeShouldBeZeroWhenNew() {
@@ -56,8 +55,8 @@ public class StackTest extends TestBase {
         stack = new Stack<Integer>();
         stack.push(1);
         stack.push(2);
-        tail = getTail();
-        assertEquals((Integer)2, tail.value);
+        Integer tail = getTailValue();
+        assertEquals((Integer)2, tail);
     }
 
     @Test
@@ -66,8 +65,8 @@ public class StackTest extends TestBase {
         stack.push(1);
         stack.push(2);
         stack.pop();
-        tail = getTail();
-        assertEquals((Integer)1, tail.value);
+        Integer tail = getTailValue();
+        assertEquals((Integer)1, tail);
     }
 
     @Test
@@ -87,8 +86,8 @@ public class StackTest extends TestBase {
         stack.pop();
         stack.push(3);
         Integer value = stack.peek();
-        tail = getTail();
-        assertEquals(value, tail.value);
+        Integer tail = getTailValue();
+        assertEquals(value, tail);
     }
 
     @Test
@@ -136,8 +135,9 @@ public class StackTest extends TestBase {
         assertEquals(1, stack.size());
     }
 
-    @SuppressWarnings("unchecked")
-    private Stack<Integer>.Node getTail() {
-        return (Stack<Integer>.Node)getField(stack, "tail");
+    private Integer getTailValue() {
+        Object tail = (Object) getField(stack, "tail");
+        Integer value = (Integer) getField(tail, "value");
+        return value;
     }
 }

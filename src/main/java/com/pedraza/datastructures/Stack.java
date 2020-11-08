@@ -2,10 +2,10 @@ package com.pedraza.datastructures;
 
 public class Stack<T> {
 
-    Node tail;
-    int nodeCount;
+    private Node tail;
+    private int nodeCount;
 
-    public class Node {
+    private class Node {
         T value;
         Node prev;
         public Node(T v) {
