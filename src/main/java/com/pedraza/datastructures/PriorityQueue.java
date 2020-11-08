@@ -22,15 +22,15 @@ public abstract class PriorityQueue<T extends Comparable<T>> {
 
     public void add(T value) {
         data.add(value);
-        insert(data.size() - 1, value);
+        add(data.size() - 1, value);
     }
 
-    private void insert(int index, T value) {
+    private void add(int index, T value) {
         int parentIndex = getParent(index);
         T parent = data.get(parentIndex);
         if (compare(parent, value) > 0) {
             swap(index, parentIndex);
-            insert(parentIndex, value);
+            add(parentIndex, value);
         }
     }
 
