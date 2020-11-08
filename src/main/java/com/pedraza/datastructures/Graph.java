@@ -2,7 +2,7 @@ package com.pedraza.datastructures;
 
 public class Graph<T, W> {
 
-    private HashTable<T, GraphVertex<T, W>> vertices;
+    protected HashTable<T, GraphVertex<T, W>> vertices;
 
     public Graph() {
         vertices = new HashTable<>();

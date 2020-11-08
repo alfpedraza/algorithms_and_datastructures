@@ -2,26 +2,26 @@ package com.pedraza.algorithms;
 
 import static org.junit.Assert.*;
 
-import com.pedraza.datastructures.Graph;
+import com.pedraza.datastructures.GraphDijkstra;
 
 import org.junit.Test;
 
-public class GraphDijkstraTest {
+public class GraphDijkstraSearchTest {
 
-    Graph<String, Integer> graph;
-    GraphDijkstra<String> search;
+    GraphDijkstra<String> graph;
+    GraphDijkstraSearch<String> search;
 
     @Test
     public void searchShouldReturnIndexWhenFound() {
         graph = buildGraph();
-        search = new GraphDijkstra<>(graph);
+        search = new GraphDijkstraSearch<>(graph);
         Object[] actual = search.search("SFO", "JFK").toArray();
         Object[] expected = new String[] { "JFK", "DCA", "ATL", "DFW", "LAS", "SFO" };
         assertArrayEquals(expected, actual);
     }
 
-    private Graph<String, Integer> buildGraph() {
-        Graph<String, Integer> graph = new Graph<>();
+    private GraphDijkstra<String> buildGraph() {
+        GraphDijkstra<String> graph = new GraphDijkstra<>();
 
         // Vertices
         graph.addVertex("DFW"); // Dallas
