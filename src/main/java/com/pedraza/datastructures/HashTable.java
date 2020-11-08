@@ -45,7 +45,7 @@ public class HashTable<K,V> implements Iterable<V> {
         return null;
     }
 
-    public void set(K key, V value) {
+    public void put(K key, V value) {
         Node node = getNode(key);
         if (node != null) {
             node.value = value;

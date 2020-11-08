@@ -27,7 +27,7 @@ public class GraphBreadthFirstSearch<T, W> {
             if (visited.get(vertex.value) != null) continue;
             
             if (vertex.value == end) return vertex;
-            visited.set(vertex.value, true);
+            visited.put(vertex.value, true);
             for (GraphEdge<T, W> edge : vertex.edges) {
                 queue.queue(edge.vertex);
             }

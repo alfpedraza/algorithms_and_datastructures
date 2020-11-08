@@ -9,7 +9,7 @@ public class GraphDijkstra<T> extends Graph<T, Integer> {
 
     public void addVertex(T value) {
         GraphDijkstraVertex<T> vertex = new GraphDijkstraVertex<T>(value);
-        vertices.set(value, vertex);
+        vertices.put(value, vertex);
     }
     
 }

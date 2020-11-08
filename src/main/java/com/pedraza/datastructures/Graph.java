@@ -13,7 +13,7 @@ public class Graph<T, W> {
 
     public void addVertex(T value) {
         GraphVertex<T, W> vertex = new GraphVertex<T, W>(value);
-        vertices.set(value, vertex);
+        vertices.put(value, vertex);
     }
 
     public void addEdge(T source, T destination) {
