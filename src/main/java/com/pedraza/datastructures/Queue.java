@@ -7,12 +7,10 @@ public class Queue<T> {
     private int nodeCount;
 
     private class Node {
-        T value;
-        Node prev;
-        Node next;
+        public T value;
+        public Node next;
         public Node(T v) {
             value = v;
-            prev = null;
             next = null;
         }
     }
@@ -26,7 +24,6 @@ public class Queue<T> {
         Node prev = last;
         if (first == null) first = node;
         last = node;
-        last.prev = prev;
         if (prev != null) prev.next = node;
         nodeCount++;
     }
@@ -35,7 +32,6 @@ public class Queue<T> {
         T value = first.value;
         Node next = first.next;
         first.value = null;
-        first.prev = null;
         first.next = null;
         first = null;
         first = next;

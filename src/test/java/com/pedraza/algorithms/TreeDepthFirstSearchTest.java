@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import com.pedraza.datastructures.BinaryTreeNode;
 import com.pedraza.datastructures.BinaryTree;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TreeDepthFirstSearchTest {
 
