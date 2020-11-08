@@ -1,7 +1,5 @@
 package com.pedraza.datastructures;
 
-import javax.management.RuntimeErrorException;
-
 public abstract class PriorityQueue<T extends Comparable<T>> {
 
     private static int DEFAULT_CAPACITY = 16;
