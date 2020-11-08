@@ -61,7 +61,7 @@ public class ArrayList<T> {
         capacity = newCapacity;
     }
 
-    public void insert(int index, T value) {
+    public void add(int index, T value) {
         if (size == capacity) {
             ensureCapacity();
         }
