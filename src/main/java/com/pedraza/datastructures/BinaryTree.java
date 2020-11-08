@@ -2,11 +2,14 @@ package com.pedraza.datastructures;
 
 public class BinaryTree<T> {
 
-    public BinaryTreeNode<T> root;
+    private BinaryTreeNode<T> root;
 
     public BinaryTree() {
         root = null;
     }
+
+    public void setRoot( BinaryTreeNode<T> value) { root = value; }
+    public BinaryTreeNode<T> getRoot() { return root; }
 
     protected void inOrderProcessing(BinaryTreeNode<T> node) { }
     protected void preOrderProcessing(BinaryTreeNode<T> node) { }
@@ -18,22 +21,22 @@ public class BinaryTree<T> {
 
     private void traverseInOrder(BinaryTreeNode<T> node) {
         if (node == null) return;
-        traverseInOrder(node.left);
+        traverseInOrder(node.getLeft());
         inOrderProcessing(node);
-        traverseInOrder(node.right);
+        traverseInOrder(node.getRight());
     }
 
     private void traversePreOrder(BinaryTreeNode<T> node) {
         if (node == null) return;
         preOrderProcessing(node);
-        traversePreOrder(node.left);
-        traversePreOrder(node.right);
+        traversePreOrder(node.getLeft());
+        traversePreOrder(node.getRight());
     }
 
     private void traversePostOrder(BinaryTreeNode<T> node) {
         if (node == null) return;
-        traversePostOrder(node.left);
-        traversePostOrder(node.right);
+        traversePostOrder(node.getLeft());
+        traversePostOrder(node.getRight());
         postOrderProcessing(node);
     }
 }

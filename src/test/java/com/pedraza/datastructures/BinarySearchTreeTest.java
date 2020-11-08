@@ -56,6 +56,7 @@ public class BinarySearchTreeTest extends TestBase {
 
     private class BST extends BinarySearchTree<Integer> {
         public ArrayList<Integer> data = new ArrayList<Integer>();
-        protected void inOrderProcessing(BinaryTreeNode<Integer> node) { data.add(node.value); }
+        protected void inOrderProcessing(BinaryTreeNode<Integer> node) {
+            data.add(node.getValue()); }
     }
 }

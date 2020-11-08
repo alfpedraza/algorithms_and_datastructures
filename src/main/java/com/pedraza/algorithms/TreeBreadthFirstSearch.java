@@ -13,14 +13,14 @@ public class TreeBreadthFirstSearch<T extends Comparable<T>> {
     }
 
     public BinaryTreeNode<T> search(T value) {
-        if (tree.root == null) return null;
+        if (tree.getRoot() == null) return null;
         Queue<BinaryTreeNode<T>> queue = new Queue<BinaryTreeNode<T>>();
-        queue.queue(tree.root);
+        queue.queue(tree.getRoot());
         while (!queue.isEmpty()) {
             BinaryTreeNode<T> node = queue.dequeue();
-            if (node.value == value) return node;
-            if (node.left  != null) queue.queue(node.left);
-            if (node.right != null) queue.queue(node.right);
+            if (node.getValue() == value) return node;
+            if (node.getLeft()  != null) queue.queue(node.getLeft());
+            if (node.getRight() != null) queue.queue(node.getRight());
         }
         return null;
     }

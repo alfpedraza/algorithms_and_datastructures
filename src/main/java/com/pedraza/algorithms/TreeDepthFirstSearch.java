@@ -13,32 +13,32 @@ public class TreeDepthFirstSearch<T extends Comparable<T>> {
     }
 
     public BinaryTreeNode<T> search(T value) {
-        return search(tree.root, value);
+        return search(tree.getRoot(), value);
     }
 
     private BinaryTreeNode<T> search(BinaryTreeNode<T> node, T value) {
         if (node == null) return null;
-        if (node.value == value) return node;
+        if (node.getValue() == value) return node;
 
         BinaryTreeNode<T> result;
-        result = search(node.left, value);
+        result = search(node.getLeft(), value);
         if (result != null) return result;
 
-        result = search(node.right, value);
+        result = search(node.getRight(), value);
         if (result != null) return result;
 
         return null;
     }
 
     public BinaryTreeNode<T> searchNoRecursive(T value) {
-        if (tree.root == null) return null;
+        if (tree.getRoot() == null) return null;
         Stack<BinaryTreeNode<T>> stack = new Stack<BinaryTreeNode<T>>();
-        stack.push(tree.root);
+        stack.push(tree.getRoot());
         while (!stack.isEmpty()) {
             BinaryTreeNode<T> node = stack.pop();
-            if (node.value == value) return node;
-            if (node.right != null) stack.push(node.right);
-            if (node.left  != null) stack.push(node.left);
+            if (node.getValue() == value) return node;
+            if (node.getRight() != null) stack.push(node.getRight());
+            if (node.getLeft()  != null) stack.push(node.getLeft());
         }
         return null;
     }
