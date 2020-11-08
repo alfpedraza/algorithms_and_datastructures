@@ -15,12 +15,12 @@ public class TreeBreadthFirstSearch<T extends Comparable<T>> {
     public BinaryTreeNode<T> search(T value) {
         if (tree.getRoot() == null) return null;
         Queue<BinaryTreeNode<T>> queue = new Queue<BinaryTreeNode<T>>();
-        queue.queue(tree.getRoot());
+        queue.add(tree.getRoot());
         while (!queue.isEmpty()) {
-            BinaryTreeNode<T> node = queue.dequeue();
+            BinaryTreeNode<T> node = queue.poll();
             if (node.getValue() == value) return node;
-            if (node.getLeft()  != null) queue.queue(node.getLeft());
-            if (node.getRight() != null) queue.queue(node.getRight());
+            if (node.getLeft()  != null) queue.add(node.getLeft());
+            if (node.getRight() != null) queue.add(node.getRight());
         }
         return null;
     }

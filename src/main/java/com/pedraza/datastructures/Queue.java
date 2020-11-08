@@ -2,9 +2,9 @@ package com.pedraza.datastructures;
 
 public class Queue<T> {
 
-    Node first;
-    Node last;
-    int nodeCount;
+    private Node first;
+    private Node last;
+    private int nodeCount;
 
     public class Node {
         T value;
@@ -21,7 +21,7 @@ public class Queue<T> {
     public boolean isEmpty() { return nodeCount == 0; }
     public T peek() { return first.value; }
 
-    public void queue(T value) {
+    public void add(T value) {
         Node node = new Node(value);
         Node prev = last;
         if (first == null) first = node;
@@ -31,7 +31,7 @@ public class Queue<T> {
         nodeCount++;
     }
 
-    public T dequeue() {
+    public T poll() {
         T value = first.value;
         Node next = first.next;
         first.value = null;

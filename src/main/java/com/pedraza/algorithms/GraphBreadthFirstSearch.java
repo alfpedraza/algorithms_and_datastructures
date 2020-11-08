@@ -20,16 +20,16 @@ public class GraphBreadthFirstSearch<T, W> {
         
         HashTable<T, Boolean> visited = new HashTable<>();
         Queue<GraphVertex<T, W>> queue = new Queue<>();
-        queue.queue(startVertex);
+        queue.add(startVertex);
 
         while (!queue.isEmpty()) {
-            GraphVertex<T, W> vertex = queue.dequeue();
+            GraphVertex<T, W> vertex = queue.poll();
             if (visited.get(vertex.getValue()) != null) continue;
             
             if (vertex.getValue() == end) return vertex;
             visited.put(vertex.getValue(), true);
             for (GraphEdge<T, W> edge : vertex.getEdges()) {
-                queue.queue(edge.getVertex());
+                queue.add(edge.getVertex());
             }
         }
         
