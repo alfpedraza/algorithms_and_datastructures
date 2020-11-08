@@ -6,8 +6,6 @@ import org.junit.Test;
 public class QueueTest extends TestBase {
     
     Queue<Integer> queue;
-    Queue<Integer>.Node first;
-    Queue<Integer>.Node last;
 
     @Test
     public void sizeShouldBeZeroWhenNew() {
@@ -57,8 +55,8 @@ public class QueueTest extends TestBase {
         queue = new Queue<Integer>();
         queue.add(1);
         queue.add(2);
-        first = getFirst();
-        assertEquals((Integer)1, first.value);
+        Integer first = getFirstValue();
+        assertEquals((Integer)1, first);
     }
 
     @Test
@@ -67,8 +65,8 @@ public class QueueTest extends TestBase {
         queue.add(1);
         queue.add(2);
         queue.poll();
-        first = getFirst();
-        assertEquals((Integer)2, first.value);
+        Integer first = getFirstValue();
+        assertEquals((Integer)2, first);
     }
 
     @Test
@@ -76,8 +74,8 @@ public class QueueTest extends TestBase {
         queue = new Queue<Integer>();
         queue.add(1);
         queue.add(2);
-        last = getLast();
-        assertEquals((Integer)2, last.value);
+        Integer last = getLastValue();
+        assertEquals((Integer)2, last);
     }
 
     @Test
@@ -86,8 +84,8 @@ public class QueueTest extends TestBase {
         queue.add(1);
         queue.add(2);
         queue.poll();
-        last = getLast();
-        assertEquals((Integer)2, last.value);
+        Integer last = getLastValue();
+        assertEquals((Integer)2, last);
     }
 
     @Test
@@ -108,8 +106,8 @@ public class QueueTest extends TestBase {
         queue.poll();
         queue.add(3);
         Integer value = queue.peek();
-        first = getFirst();
-        assertEquals(value, first.value);
+        Integer first = getFirstValue();
+        assertEquals(value, first);
     }
 
     @Test
@@ -157,14 +155,16 @@ public class QueueTest extends TestBase {
         assertEquals(1, queue.size());
     }
 
-    private Queue<Integer>.Node getFirst() {
-        return getNode("first");
+    private Integer getFirstValue() {
+        Object first = (Object) getField(queue, "first");
+        Integer value = (Integer) getField(first, "value");
+        return value;
     }
-    private Queue<Integer>.Node getLast() {
-        return getNode("last");
+
+    private Integer getLastValue() {
+        Object last = (Object) getField(queue, "last");
+        Integer value = (Integer) getField(last, "value");
+        return value;
     }
-    @SuppressWarnings("unchecked")
-    private Queue<Integer>.Node getNode(String fieldName) {
-        return (Queue<Integer>.Node)getField(queue, fieldName);
-    }
+
 }

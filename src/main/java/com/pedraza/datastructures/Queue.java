@@ -6,7 +6,7 @@ public class Queue<T> {
     private Node last;
     private int nodeCount;
 
-    public class Node {
+    private class Node {
         T value;
         Node prev;
         Node next;
